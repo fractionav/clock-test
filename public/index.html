@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Test</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<style>
+
+    body{
+        margin: 0;
+        padding: 0;
+        width: 384px;
+        background-color: white;
+    }
+
+    #container{
+        height: 96px;
+        width: 384px;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        
+    }
+
+    #logo{
+        height:90px;
+        padding: 3px;
+       
+    }
+
+    #clock{
+        height: 96px;
+        width:190px;
+        /* vertical-align: top; */
+        display: inline-block;
+    }
+
+    h1#timer{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        vertical-align: baseline;
+        margin:0;
+        font-size: 60px;
+       
+      
+
+    }
+
+
+    #left{
+        height: 96px;
+        
+        vertical-align: top;
+        display: inline-block;
+
+    }
+
+    #right{
+        height: 96px;
+        vertical-align: top;
+        display: inline-block;
+
+    }
+
+
+</style>
+
+<body>
+<div id ='container'>
+    <div id = 'left'>
+
+        <img id = 'logo' src = "logo2.png">
+
+    </div>
+    
+    <div id='clock'>
+    
+        <h1 id = 'timer'></h1>
+
+    </div>
+
+    <div id = 'right'>
+    
+        <img id = 'logo' src = "logo3.png">
+    
+    
+    </div>
+</div>
+
+<script>
+
+    const socket = io();
+
+    socket.on('data', update);
+
+    function update(data){
+
+        let timer = document.getElementById('timer');
+
+        timer.innerText = data.toString();
+
+    }
+
+
+
+</script>
+
+    
+</body>
+</html>

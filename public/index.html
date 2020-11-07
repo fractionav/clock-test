@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clock Test</title>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/scripts/clock.js"></script>
 </head>
 <style>
 
@@ -90,25 +91,6 @@
     
     </div>
 </div>
-
-<script>
-
-    const socket = io();
-
-    socket.on('data', update);
-
-    function update(data){
-
-        let timer = document.getElementById('timer');
-
-        timer.innerText = data.toString();
-
-    }
-
-
-
-</script>
-
     
 </body>
 </html>
